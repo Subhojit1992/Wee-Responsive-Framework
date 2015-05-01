@@ -1,0 +1,12 @@
+// Grid set variable
+$columns: 12;
+$column-width: 70px;
+$gutter: 30px;
+$padding: $gutter / 2;
+
+// Should it be responsive?
+$responsive: true;
+
+// Set container width relative to grid size
+$width: ($column-width * $columns) + ($gutter * ($columns - 1));
+

@@ -1,0 +1,56 @@
+// @import "gvar";
+// Set Base Container
+.container
+{
+// Set container width if responsive
+@if $responsive == true
+   {
+	max-width:$width;
+   }
+@else
+   {
+	width:$width;
+   }
+margin:0px auto;
+padding: 0 $padding 0 $padding;
+}
+
+
+
+// Define Individual Grid Classes
+@for $i from 1 to $columns
+{
+
+	// Calculate grid size in pixels
+	$wee-fl: ($column-width * $i) + ($gutter * ($i - 1));
+	
+	// Calculate responsive grid sizes if required
+	@if $responsive == true
+	{
+		// Convert Pixels to Percentages
+		$wee-fl: ($wee-fl / $width) * 100%;
+
+		// Convert Gutter Pixels to Percentages
+		$gutter-percentage: ($gutter / $width) * 100%;
+
+		.wee-fl#{$i}
+			{
+			width: $wee-fl;
+			float: left;
+			margin-left: $gutter-percentage;
+			background: #eee;
+			}
+	}
+	@else
+	{
+		$wee-fl: $wee-fl;
+		.wee-fl#{$i}
+			{
+			width: $wee-fl;
+			float: left;
+			margin-left: $gutter;
+			background: #eee;
+			}
+	}
+}
+

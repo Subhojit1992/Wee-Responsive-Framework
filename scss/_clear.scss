@@ -1,0 +1,12 @@
+//Clearfix
+.clear
+{
+margin-left: 0px;
+clear: left;
+}
+.container::after,
+.container::before{
+	content: '';
+	display: block;
+	clear: both;
+}
